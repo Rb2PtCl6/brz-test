@@ -46,7 +46,8 @@
             document.title = recived
             var player = new Playerjs({
                 id:"videobox",
-                file:`video/${recived}`})
+            })
+            player.api("preload",`video/${recived}`)
             player.api("volume","0.3")
         }
     </script>
