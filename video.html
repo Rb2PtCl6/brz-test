@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/ico-64.png" type="image/png">
+    <title>empty</title>
+    <script src="./js/playerjs-pleer-13-t10-16.6wpn.js"></script>
+    <style>
+        *{
+            margin: 0pt;
+            padding: 0px;
+        }
+        div.main{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background-color: aqua;
+        }
+        div#videobox{
+            height: 70%;
+            aspect-ratio: 16/9;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div id="videobox"></div>
+    </div>
+    <script>
+        var storage =[
+            "orig-2e7h-Psbc2k.mp4",
+            "hevc_nvenc-faststart-out1.mp4",
+            "hevc_nvenc-out2.mp4",
+            "hevc_nvenc-out2.mkv",
+            "av1.mkv"
+        ]
+        var base = new URLSearchParams(window.location.search)
+        var id = base.get("id")
+        if (id){
+            var recived = storage[id]
+            document.title = recived
+            var player = new Playerjs({
+                id:"videobox",
+                file:`video/${recived}`})
+            player.api("volume","0.3")
+        }
+    </script>
+</body>
+</html>
